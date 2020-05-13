@@ -8,6 +8,7 @@ const data = {
       location: 'Spain, Barcelona',
       jobTitle: 'Engineer',
       description: 'Doing something, programing....',
+      userId: 'google-oauth2|106322693209926200762',
       startDate: '01/01/2014',
       endDate: '01/01/2016'
     },
@@ -18,6 +19,7 @@ const data = {
       location: 'Slovakia, Kosice',
       jobTitle: 'Software Engineer',
       description: 'Responsoble for parsing framework for JSON medical data.',
+      userId: 'google-oauth2|106322693209926200762',
       startDate: '01/01/2011',
       endDate: '01/01/2013'
     },
@@ -28,6 +30,7 @@ const data = {
       location: 'USA, Montana',
       jobTitle: 'Housekeeping',
       description: 'So much responsibility....Overloaaaaaad',
+      userId: 'google-oauth2|106322693209926200762',
       startDate: '01/01/2010',
       endDate: '01/01/2011'
     }

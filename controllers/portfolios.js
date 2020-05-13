@@ -17,7 +17,16 @@ exports.getPortfolioById = async (req, res) => {
 }
 
 exports.createPortfolio = async (req, res) => {
-  const data = req.body;
-  console.log(data);
-  return res.json({message: 'Creating Portfolio...'});
+  const portfolioData = req.body;
+  // Todo: Exctract from req!
+  const userId = 'google-oauth2|106322693209926200762';
+  const portfolio = new Portfolio(portfolioData);
+  portfolio.userId = userId;
+
+  try {
+    const newPortfolio = await portfolio.save();
+    return res.json(newPortfolio);
+  } catch(error) {
+    return res.status(422).send(error.message);
+  }
 }
