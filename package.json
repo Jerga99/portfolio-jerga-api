@@ -16,7 +16,8 @@
     "express-jwt": "^5.3.3",
     "jwks-rsa": "^1.8.0",
     "mongoose": "^5.9.13",
-    "slugify": "^1.4.0"
+    "slugify": "^1.4.0",
+    "unique-slug": "^2.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
