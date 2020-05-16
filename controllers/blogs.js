@@ -12,7 +12,10 @@ exports.getBlogs = async (req, res) => {
 
 exports.getBlogsByUser = async (req, res) => {
   const userId = req.user.sub;
-  const blogs = await Blog.find({userId});
+  const blogs = await Blog.find({
+    userId,
+    status: { $in: ['draft', 'published']}
+  });
   return res.json(blogs);
 }
 
