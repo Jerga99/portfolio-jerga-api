@@ -11,6 +11,10 @@ async function runServer() {
   server.use('/api/v1/portfolios', require('./routes/portfolios'));
   server.use('/api/v1/blogs', require('./routes/blogs'));
 
+  server.get('/test', (req, res) => {
+    res.json({message: 'Hello World'});
+  })
+
   const PORT = parseInt(process.env.PORT, 10) || 3001;
   server.listen(PORT, (err) => {
     if (err) console.error(err);
