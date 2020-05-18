@@ -32,7 +32,7 @@ exports.checkRole = role => (req, res, next) => {
 
 exports.getAccessToken = (callback) => {
   const options = {
-    methods: 'POST',
+    method: 'POST',
     url: config.AUTH0_TOKEN_URL,
     headers: {'content-type': 'application/json'},
     form: {
@@ -43,9 +43,17 @@ exports.getAccessToken = (callback) => {
     }
   }
 
-  request(options, (error, res, body) => {
-    if (error) { callback(error)}
+  return new Promise((resolve, reject) => {
+    request(options, (error, res, body) => {
+      if (error) {
+        return reject(new Error(error))
+      }
 
-    return callback(null, JSON.parse(body));
+      resolve(body ? JSON.parse(body) : '')
+    })
   })
+}
+
+exports.getAuth0User = accessToken => userId => {
+  console.log(accessToken, userId)
 }
