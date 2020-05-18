@@ -4,6 +4,7 @@ const jwksRsa = require('jwks-rsa');
 const request = require('request');
 const config = require('../config');
 
+
 // Authentication middleware
 // This middleware will check access token in authorization headers
 // of a request

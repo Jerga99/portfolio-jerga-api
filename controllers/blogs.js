@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const Blog = mongoose.model('Blog');
 const { getAccessToken, getAuth0User } = require('./auth');
 
+
 exports.getBlogs = async (req, res) => {
   const blogs = await Blog.find({status: 'published'}).sort({createdAt: -1});
   const { access_token } = await getAccessToken();
