@@ -55,5 +55,19 @@ exports.getAccessToken = (callback) => {
 }
 
 exports.getAuth0User = accessToken => userId => {
-  console.log(accessToken, userId)
+  const options = {
+    method: 'GET',
+    url: `${config.AUTH0_DOMAIN}/api/v2/users/${userId}?fields=name,picture,user_id`,
+    headers: {authorization: `Bearer ${accessToken}`}
+  };
+
+  return new Promise((resolve, reject) => {
+    request(options, (error, res, body) => {
+      if (error) {
+        return reject(new Error(error))
+      }
+
+      resolve(body ? JSON.parse(body) : '')
+    })
+  })
 }
